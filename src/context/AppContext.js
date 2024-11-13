@@ -7,19 +7,19 @@ export const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const addToCart = (product) => {
-    // Logic to add product to cart
-  };
-
-  const removeItem = (productId) => {
-    // Logic to remove item from cart
-  };
-
-  const updateQuantity = (productId, quantity) => {
-    // Logic to update item quantity in cart
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        );
+      }
+      return [...prevItems, { ...product, quantity: 1 }];
+    });
   };
 
   return (
-    <AppContext.Provider value={{ cartItems, addToCart, removeItem, updateQuantity, user, setUser }}>
+    <AppContext.Provider value={{ cartItems, addToCart, user, setUser }}>
       {children}
     </AppContext.Provider>
   );
