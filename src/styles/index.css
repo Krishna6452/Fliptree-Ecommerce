@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.login-screen, .signup-screen, .product-listing, .cart-screen {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.product-card, .cart-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
